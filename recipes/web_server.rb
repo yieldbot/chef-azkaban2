@@ -22,6 +22,7 @@ user = node[:azkaban][:user]
 group = node[:azkaban][:group]
 install_dir = "#{node[:azkaban][:install_dir]}/webserver"
 version = node[:azkaban][:version]
+fqdn = node[:fqdn].dup # use this as the assumed mysql host
 
 ws_dir = "azkaban-#{version}"
 tarball = "azkaban-web-server-#{version}.tar.gz"
@@ -83,6 +84,9 @@ template "#{install_dir}/#{ws_dir}/conf/azkaban.properties" do
   owner user
   group group
   mode  00755
+  variables({
+      :mysql_host => fqdn
+  })
 end
 
 # start process

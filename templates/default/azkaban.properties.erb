@@ -15,7 +15,7 @@ azkaban.project.dir=projects
 
 database.type=mysql
 mysql.port=3306
-mysql.host=localhost
+mysql.host=<%= @mysql_host %>
 mysql.database=<%= @node[:azkaban][:mysql][:database] %>
 mysql.user=<%= @node[:azkaban][:mysql][:user] %>
 mysql.password=<%= @node[:azkaban][:mysql][:password] %>
