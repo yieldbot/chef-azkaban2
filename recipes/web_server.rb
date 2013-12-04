@@ -70,13 +70,6 @@ remote_file "#{install_dir}/#{ws_dir}/extlib/#{jdbc_jar}" do
   mode 00644
 end
 
-execute "tar" do
-  user  "root"
-  group "root"
-  cwd ""
-  command "tar zxvf #{Chef::Config[:file_cache_path]}/#{tarball}"
-end
-
 # set up templates
 template "#{install_dir}/#{ws_dir}/bin/azkaban-web-start.sh" do
   source "azkaban-web-start.sh.erb"
