@@ -41,8 +41,8 @@ end
 
 # create installation directory
 directory "#{install_dir}" do
-  owner "root"
-  group "root"
+  owner user
+  group group
   mode 00755
   recursive true
   action :create

@@ -11,6 +11,14 @@ Requirements
 * MySQL server available and already set up.
 * expects keystore to already be set up
 
+Setting up the keystore can be done by executing
+
+`keytool -keystore keystore -alias jetty -genkey -keyalg RSA`
+
+and going through the dialog. See the page below for more information.
+
+http://docs.codehaus.org/display/JETTY/How+to+configure+SSL
+
 Attributes
 ==========
 
