@@ -62,7 +62,7 @@ end
 jdbc_tarball = "mysql-connector-java.tar.gz"
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{tarball}" do
-  source node[:azkaban][:jdbc_jar_tar_url]
+  source node[:azkaban][:jdbc_jar_url]
   mode 00644
 end
 
