@@ -19,6 +19,7 @@
 default[:azkaban][:version] = "2.1"
 default[:azkaban][:install_dir] = "/usr/local"
 default[:azkaban][:user] = "azkaban"
+default[:azkaban][:group] = "azkaban"
 default[:azkaban][:jdbc_jar_url] = ""
 default[:azkaban][:tmp_dir] = "/tmp"
 
