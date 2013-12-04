@@ -23,7 +23,7 @@ group = node[:azkaban][:group]
 install_dir = "#{node[:azkaban][:install_dir]}/webserver"
 version = node[:azkaban][:version]
 
-ws_dir = "azkaban-web-server-#{version}"
+ws_dir = "azkaban-#{version}"
 tarball = "#{ws_dir}.tar.gz"
 download_file = "https://s3.amazonaws.com/azkaban2/azkaban2/#{version}/#{tarball}"
 
