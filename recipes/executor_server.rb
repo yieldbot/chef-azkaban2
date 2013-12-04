@@ -89,6 +89,15 @@ template "#{install_dir}/#{ws_dir}/conf/azkaban.properties" do
   })
 end
 
+# apparently we need to create this (empty) directory...
+directory "#{install_dir}/#{ws_dir}/plugins/jobtypes" do
+  owner user
+  group group
+  mode 00755
+  recursive true
+  action :create
+end
+
 # start process
 execute "start executor" do
   user user
