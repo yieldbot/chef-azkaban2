@@ -55,8 +55,8 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{tarball}" do
 end
 
 execute "tar" do
-  user  "root"
-  group "root"
+  user  user
+  group group
   cwd install_dir
   command "tar zxvf #{Chef::Config[:file_cache_path]}/#{tarball}"
 end
@@ -73,15 +73,15 @@ end
 # set up templates
 template "#{install_dir}/#{ws_dir}/bin/azkaban-web-start.sh" do
   source "azkaban-web-start.sh.erb"
-  owner "root"
-  group "root"
+  owner user
+  group group
   mode  00755
 end
 
 template "#{install_dir}/#{ws_dir}/conf/azkaban.properties" do
   source "azkaban.properties.erb"
-  owner "root"
-  group "root"
+  owner user
+  group group
   mode  00755
 end
 
