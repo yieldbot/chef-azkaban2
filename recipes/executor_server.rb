@@ -85,3 +85,11 @@ template "#{install_dir}/#{ws_dir}/conf/azkaban.properties" do
   mode  00755
 end
 
+# start process
+execute "start executor" do
+  user user
+  group group
+  cwd "#{install_dir}/#{ws_dir}"
+  command "bin/azkaban-executor-start.sh &> executor.out"
+  action :run
+end
