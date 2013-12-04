@@ -61,20 +61,13 @@ execute "tar" do
   command "tar zxvf #{Chef::Config[:file_cache_path]}/#{tarball}"
 end
 
-# download and unpack tar of JDBC connetector jar
+# download JDBC connector jar
 # NB you'll need to host it internally somewhere
-jdbc_tarball = "mysql-connector-java.tar.gz"
+jdbc_jar = "mysql-connector.jar"
 
-remote_file "#{Chef::Config[:file_cache_path]}/#{tarball}" do
+remote_file "#{install_dir}/#{ws_dir}/extlib/#{jdbc_jar}" do
   source node[:azkaban][:jdbc_jar_url]
   mode 00644
-end
-
-execute "tar" do
-  user  "root"
-  group "root"
-  cwd "#{install_dir}/#{ws_dir}/extlib"
-  command "tar zxvf #{Chef::Config[:file_cache_path]}/#{tarball}"
 end
 
 # set up templates
