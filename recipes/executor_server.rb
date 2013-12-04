@@ -19,14 +19,18 @@
 include_recipe "java"
 
 user = node[:azkaban][:user]
+group = node[:azkaban][:group]
 install_dir = "#{node[:azkaban][:install_dir]}/executor"
 version = node[:azkaban][:version]
 
 ws_dir = "azkaban-#{version}"
-tarball = "#{ws_dir}.tar.gz"
+tarball = "azkaban-executor-server-#{version}.tar.gz"
 download_file = "https://s3.amazonaws.com/azkaban2/azkaban2/#{version}/#{tarball}"
 
 # create user
+group group do
+end
+
 user user do
   comment "Azkaban user"
   gid "azkaban"
